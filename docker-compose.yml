@@ -1,0 +1,53 @@
+#Dockerised IPSC <--> HomeBrew Protocol stack. 
+#
+#For connecting Motorola repeaters to FreeDMR
+#NB: If you get strange audio problems, try only 
+#enabling one timelot. This is a known issue 
+#with the current tools. 
+
+version: '3.3'
+services:
+    #Duplicate this section for each repeater
+    #do docker-compose down and then docker-compose up -d in this 
+    #directory afterwards to stop and start the containers 
+    #you may need to do conntrack -F after the restart
+    FreeDMR-IPSC:
+        container_name: FreeDMR-IPSC
+        ports:
+          #IPSC port - left side always stays the same (inside container), right side is 
+          #the port you want to present on the outside.
+          #This is automatically mapped - docker uses iptables to do this
+          - '55000:55000/udp'
+        environment:
+          #Configure IPSC side (IPSC_Bridge)
+          #True if we are the master
+          #False if we are connecting to an existing IPSC network
+          - IPSC_MASTER_PEER=True
+          #IP and Port only needed if the above is False
+          - IPSC_MASTER_IP=
+          - IPSC_MASTER_PORT=
+          #Which timeslots to forward
+          - IPSC_TS1=False
+          - IPSC_TS2=True
+          #DMR ID we use to talk to the IPSC network
+          #This should probably be the repeater server's SERVER_ID
+          - IPSC_RADIO_ID=2341
+          #Configure HBP (repeater) details (HB_Bridge)
+          - HB_CALLSIGN=
+          - HB_RADIO_ID=
+          - HB_RX_FREQ=
+          - HB_TX_FREQ=
+          - HB_TX_POWER=
+          - HB_COLORCODE=
+          - 'HB_LAT='
+          - 'HB_LON=-'
+          - HB_HEIGHT=
+          - HB_LOCATION=
+          #Put an Options line here to configure static TGs etc
+          - HB_OPTIONS=
+          #Configure Repeater server side (DMRGateway)
+          #Target server
+          - DMRG_TARGET=
+        image: 'hacknix/freedmr:FreeDMR-IPSC'
+        #Container will persist over reboots
+        restart: "unless-stopped"
