@@ -48,6 +48,6 @@ services:
           #Configure Repeater server side (DMRGateway)
           #Target server
           - DMRG_TARGET=
-        image: 'hacknix/freedmr:FreeDMR-IPSC'
+        image: 'hacknix/freedmr-ipsc:latest'
         #Container will persist over reboots
         restart: "unless-stopped"
