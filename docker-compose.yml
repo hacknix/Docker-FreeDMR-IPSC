@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+    FreeDMR-Mytera:
+        container_name: FreeDMR-IPSC
+        #        volumes:
+        #    - './DMRGateway.ini:/opt/hytera-stack/DMRGateway.ini'
+        ports:
+          - '62005:62005/udp'
+          - '62006:62006/udp'
+          - '62007:62007/udp'
+        image: 'hacknix/freedmr:FreeDMR-IPSC'
+        restart: "unless-stopped"
