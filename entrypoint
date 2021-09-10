@@ -9,6 +9,8 @@ sed -i "s/{{IPSC_MASTER_PEER}}/$IPSC_MASTER_PEER/" /opt/dmrlink.cfg
 sed -i "s/{{IPSC_TS1}}/$IPSC_TS1/" /opt/dmrlink.cfg
 sed -i "s/{{IPSC_TS2}}/$IPSC_TS2/" /opt/dmrlink.cfg
 sed -i "s/{{IPSC_RADIO_ID}}/$IPSC_RADIO_ID/" /opt/dmrlink.cfg
+sed -i "s/{{IPSC_AUTH_KEY}}/$IPSC_AUTH_KEY/" /opt/dmrlink.cfg
+
 
 sed -i "s/{{HB_CALLSIGN}}/$HB_CALLSIGN/" /opt/hblink.cfg
 sed -i "s/{{HB_RADIO_ID}}/$HB_RADIO_ID/" /opt/hblink.cfg

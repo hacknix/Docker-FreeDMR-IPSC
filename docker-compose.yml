@@ -32,6 +32,7 @@ services:
           #DMR ID we use to talk to the IPSC network
           #This should probably be the repeater server's SERVER_ID
           - IPSC_RADIO_ID=2341
+          - IPSC_AUTH_KEY=
           #Configure HBP (repeater) details (HB_Bridge)
           - HB_CALLSIGN=
           - HB_RADIO_ID=
