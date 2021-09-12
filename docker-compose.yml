@@ -27,7 +27,7 @@ services:
           - IPSC_MASTER_IP=
           - IPSC_MASTER_PORT=
           #Which timeslots to forward
-          - IPSC_TS1=False
+          - IPSC_TS1=True
           - IPSC_TS2=True
           #DMR ID we use to talk to the IPSC network
           #This should probably be the repeater server's SERVER_ID
@@ -44,9 +44,15 @@ services:
           - 'HB_LON=-'
           - HB_HEIGHT=
           - HB_LOCATION=
-          #Put an Options line here to configure static TGs etc
-          - HB_OPTIONS=
+          #Which slots to enable: 
+          # 1 = 1, 2 = 2, 3 = both
+          # Note there are some issues with both slots
+          # at this time.
+          # Slot 2 is setup to work with dial-a-tg **only**
+          - HB_SLOTS=1
           #Configure Repeater server side (DMRGateway)
+          #Put an Options line here to configure static TGs etc
+          - 'DMRG_OPTIONS='
           #Target server
           - DMRG_TARGET=
         image: 'hacknix/freedmr-ipsc:latest'

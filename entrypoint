@@ -22,8 +22,9 @@ sed -i "s/{{HB_LAT}}/$HB_LAT/" /opt/hblink.cfg
 sed -i "s/{{HB_LON}}/$HB_LON/" /opt/hblink.cfg
 sed -i "s/{{HB_HEIGHT}}/$HB_HEIGHT/" /opt/hblink.cfg
 sed -i "s/{{HB_LOCATION}}/$HB_LOCATION/" /opt/hblink.cfg
-sed -i "s/{{HB_OPTIONS}}/$HB_OPTIONS/" /opt/hblink.cfg
+sed -i "s/{{HB_SLOTS}}/$HB_SLOTS/" /opt/hblink.cfg
 
+sed -i "s/{{DMRG_OPTIONS}}/$DMRG_OPTIONS/" /opt/DMRGateway.ini
 sed -i "s/{{DMRG_TARGET}}/$DMRG_TARGET/" /opt/DMRGateway.ini
 
 #Run processes
