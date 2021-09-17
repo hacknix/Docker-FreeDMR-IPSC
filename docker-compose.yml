@@ -14,7 +14,7 @@ services:
     FreeDMR-IPSC:
         container_name: FreeDMR-IPSC
         ports:
-          #IPSC port - left side always stays the same (inside container), right side is 
+          #IPSC port - right side always stays the same (inside container), left side is 
           #the port you want to present on the outside.
           #This is automatically mapped - docker uses iptables to do this
           - '55000:55000/udp'
